@@ -37,14 +37,14 @@ for slug, d in PEOPLE.items():
         html = html.replace("{{%s}}" % k, v)
     left = re.findall(r"{{\w+}}", html)
     assert not left, left
-    out = os.path.join(BASE, "site", slug)
+    out = os.path.join(BASE, "docs", slug)
     os.makedirs(out, exist_ok=True)
     open(os.path.join(out, "index.html"), "w", encoding="utf-8").write(html)
     print("ok", out)
 
 # strona główna repo – nic nie zdradza
-open(os.path.join(BASE, "site", "index.html"), "w", encoding="utf-8").write(
+open(os.path.join(BASE, "docs", "index.html"), "w", encoding="utf-8").write(
     '<!DOCTYPE html><meta charset="utf-8"><meta name="robots" content="noindex"><title>🎁</title>'
     '<body style="font-family:Georgia;display:grid;place-items:center;height:100vh;margin:0;background:#e7e1db;color:#3a2e28">'
     '<p>Hmm, ten link nie jest kompletny. Poproś o właściwy 😉</p></body>')
-open(os.path.join(BASE, "site", ".nojekyll"), "w").close()
+open(os.path.join(BASE, "docs", ".nojekyll"), "w").close()
