@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Kasiu, mam coś dla Ciebie</title>
+<meta name="description" content="Prezent na 30. urodziny">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;1,9..144,300&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23b5532e'/%3E%3Cpath d='M20 22h24l-3 24H23z' fill='%23efe7df'/%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#e7e1db; --bg2:#efe9e3; --paper:#f6f1ec; --ink:#3a2e28; --ink2:#6d5c52;
+  --clay:#b5532e; --clay2:#8f3f21; --line:#d3c8bf; --gold:#c8a15a;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Source Sans 3",system-ui,sans-serif;font-size:18px;line-height:1.6;overflow-x:hidden}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:300;line-height:1.05;margin:0 0 .5em}
+h2{font-size:clamp(2rem,6vw,3.4rem);color:var(--clay)}
+h2 em{font-style:italic}
+p{margin:0 0 1em}
+a{color:var(--clay)}
+section{padding:clamp(56px,10vw,120px) 16px;position:relative}
+.wrap{max-width:900px;margin:0 auto}
+.kicker{font-size:.95rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);margin-bottom:1em}
+.bgpat{position:fixed;inset:0;z-index:-1;opacity:.55;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320' viewBox='0 0 320 320'%3E%3Cg fill='none' stroke='%23fff' stroke-width='1.4'%3E%3Cpath d='M40 60c0 20 8 40 30 40s30-20 30-40M40 60h60'/%3E%3Cpath d='M190 40c-8 10-12 30-6 50 3 12 14 18 22 18s19-6 22-18c6-20 2-40-6-50M190 40h32'/%3E%3Cellipse cx='90' cy='200' rx='40' ry='10'/%3E%3Cpath d='M50 200c0 22 15 40 40 40s40-18 40-40'/%3E%3Cpath d='M220 170c-15 5-25 20-25 40s15 40 35 40 35-20 35-40-10-35-25-40M215 170h40'/%3E%3Ccircle cx='150' cy='290' r='14'/%3E%3Cpath d='M270 270c0 12 10 22 20 22s20-10 20-22'/%3E%3C/g%3E%3C/svg%3E")}
+/* HERO */
+.hero{min-height:100svh;display:grid;place-items:center;text-align:center;padding-top:80px;padding-bottom:80px}
+.hero .num{font-family:Fraunces,serif;font-weight:600;font-size:clamp(9rem,36vw,22rem);line-height:.85;letter-spacing:-.04em;
+  background:url(../assets/hero.jpg) center/cover;-webkit-background-clip:text;background-clip:text;color:transparent;filter:contrast(1.05) saturate(1.1);
+  display:inline-block;animation:spin-in 1.4s cubic-bezier(.2,.8,.2,1) both}
+@keyframes spin-in{from{opacity:0;transform:rotate(-30deg) scale(.6)}to{opacity:1;transform:none}}
+.hero h1{font-size:clamp(2.2rem,7vw,4.2rem);color:var(--ink);margin:.2em 0 .3em;animation:fade-up 1s .5s both}
+.hero h1 span{color:var(--clay);font-style:italic}
+.hero p{max-width:34ch;margin:0 auto 2em;color:var(--ink2);animation:fade-up 1s .8s both}
+@keyframes fade-up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.scroll{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);color:var(--ink2);font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;animation:fade-up 1s 1.4s both}
+.scroll:after{content:"";display:block;width:1px;height:40px;background:var(--ink2);margin:8px auto 0;animation:drip 1.6s infinite}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+/* reveal on scroll */
+.r{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
+.r.in{opacity:1;transform:none}
+/* ZAGADKA */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:2em;perspective:1200px}
+.card{position:relative;height:230px;cursor:pointer;transform-style:preserve-3d;transition:transform .7s cubic-bezier(.2,.8,.2,1)}
+.card.flip{transform:rotateY(180deg)}
+.card>div{position:absolute;inset:0;border-radius:18px;padding:24px;backface-visibility:hidden;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
+.card .f{background:var(--clay);color:#fff;font-family:Fraunces,serif;font-size:1.6rem;box-shadow:0 12px 30px -12px rgba(0,0,0,.4)}
+.card .f small{display:block;font-family:"Source Sans 3";font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;opacity:.8;margin-top:12px}
+.card .b{background:var(--paper);transform:rotateY(180deg);font-size:1.05rem;color:var(--ink);border:1px solid var(--line)}
+.card .b b{color:var(--clay)}
+/* HISTORIA */
+.hist{background:var(--ink);color:#e9e1da}
+.hist h2{color:var(--gold)}
+.hist .kicker{color:#b9aba0}
+.tl{list-style:none;padding:0;margin:2.5em 0 0;position:relative}
+.tl:before{content:"";position:absolute;left:12px;top:6px;bottom:6px;width:1px;background:#5d4d43}
+.tl li{position:relative;padding:0 0 2.2em 46px}
+.tl li:before{content:"";position:absolute;left:6px;top:8px;width:13px;height:13px;border-radius:50%;background:var(--clay);box-shadow:0 0 0 4px var(--ink)}
+.tl b{display:block;font-family:Fraunces,serif;font-weight:600;font-size:1.35rem;color:var(--gold)}
+.tl p{margin:0;color:#cdbfb4}
+.photo{border-radius:18px;overflow:hidden;box-shadow:0 30px 60px -30px rgba(0,0,0,.6);margin:2.5em 0 0}
+.photo img{display:block;width:100%;height:auto}
+.photo figcaption{font-size:.85rem;color:#a99a8f;padding:10px 14px;background:#2b211c}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:2.5em}
+.grid2 .photo{margin:0}
+@media(max-width:600px){.grid2{grid-template-columns:1fr}}
+/* KOŁO */
+.wheel{background:var(--bg2)}
+.wheelbox{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:14px;margin-top:1.5em;box-shadow:0 30px 60px -40px rgba(0,0,0,.5)}
+canvas#cv{display:block;width:100%;height:auto;border-radius:14px;background:radial-gradient(ellipse at 50% 120%,#c4b3a4,#e9e1da 60%);touch-action:none;cursor:crosshair}
+.btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.btn{appearance:none;border:0;border-radius:999px;padding:12px 22px;font:600 1rem "Source Sans 3";cursor:pointer;background:var(--clay);color:#fff;transition:transform .15s,background .2s;text-decoration:none;display:inline-block}
+.btn:hover{background:var(--clay2);transform:translateY(-1px)}
+.btn.ghost{background:transparent;color:var(--clay);border:1.5px solid var(--clay)}
+.hint{font-size:.95rem;color:var(--ink2);margin-top:10px}
+/* PREZENT */
+.gift{text-align:center}
+.box{position:relative;width:min(280px,70vw);aspect-ratio:1;margin:2em auto 0;cursor:pointer;transition:transform .3s}
+.box:hover{transform:scale(1.03)}
+.box .base{position:absolute;left:8%;right:8%;bottom:0;height:62%;background:linear-gradient(#c9633c,#a94a26);border-radius:8px;box-shadow:0 30px 50px -25px rgba(0,0,0,.6)}
+.box .lid{position:absolute;left:0;right:0;top:20%;height:22%;background:linear-gradient(#d5714b,#b5532e);border-radius:8px;transition:transform .8s cubic-bezier(.2,.8,.2,1),opacity .8s;transform-origin:20% 100%;z-index:2}
+.box .rib{position:absolute;left:calc(50% - 7%);width:14%;top:20%;bottom:0;background:var(--gold);z-index:3;transition:opacity .5s}
+.box .rib2{position:absolute;top:calc(20% + 5%);height:11%;left:0;right:0;background:var(--gold);z-index:3;transition:opacity .5s}
+.box .bow{position:absolute;left:50%;top:20%;transform:translate(-50%,-70%);width:34%;height:22%;z-index:4;transition:opacity .5s}
+.box .bow:before,.box .bow:after{content:"";position:absolute;top:0;width:45%;height:100%;border:6px solid var(--gold);border-radius:50% 50% 50% 50%/60% 60% 40% 40%}
+.box .bow:before{left:0;transform:rotate(-20deg)}.box .bow:after{right:0;transform:rotate(20deg)}
+.box .tag{position:absolute;inset:auto 0 -40px;color:var(--ink2);font-size:.95rem;animation:pulse 1.6s infinite}
+@keyframes pulse{50%{opacity:.5}}
+.box.open .lid{transform:translate(-18%,-140%) rotate(-32deg);opacity:0}
+.box.open .rib,.box.open .rib2,.box.open .bow,.box.open .tag{opacity:0}
+.box.open .base{animation:shake .6s}
+@keyframes shake{20%{transform:rotate(-2deg)}40%{transform:rotate(2deg)}60%{transform:rotate(-1deg)}}
+.confetti{position:absolute;width:10px;height:14px;top:20%;left:50%;opacity:0;pointer-events:none}
+.box.open .confetti{animation:conf 1.4s ease-out forwards}
+@keyframes conf{0%{opacity:1;transform:translate(0,0) rotate(0)}100%{opacity:0;transform:translate(var(--dx),var(--dy)) rotate(720deg)}}
+.reveal{max-height:0;overflow:hidden;opacity:0;transition:max-height 1.2s ease,opacity .9s .3s ease}
+.reveal.on{max-height:3000px;opacity:1}
+.vcard{background:var(--paper);border-radius:22px;padding:clamp(24px,5vw,48px);margin:3em auto 0;max-width:720px;text-align:left;border:1px solid var(--line);box-shadow:0 40px 80px -40px rgba(0,0,0,.5);position:relative;overflow:hidden}
+.vcard:before{content:"";position:absolute;inset:0;background:url(../assets/pot.jpg) center/cover;opacity:.08}
+.vcard>*{position:relative}
+.vcard .k{color:var(--clay);font-size:1rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.5em}
+.vcard h3{font-size:clamp(2rem,6vw,3rem);color:var(--clay);margin:0 0 .3em}
+.vcard .meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;margin:1.5em 0;padding:1.2em 0;border-top:1px dashed var(--line);border-bottom:1px dashed var(--line)}
+.vcard .meta b{display:block;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink2)}
+.vcard .meta span{font-family:Fraunces,serif;font-size:1.3rem}
+/* FORM */
+.form{background:var(--clay);color:#fff;border-radius:22px;padding:clamp(24px,5vw,44px);margin-top:2.5em;text-align:left;max-width:720px;margin-left:auto;margin-right:auto}
+.form h3{font-size:1.9rem;margin-bottom:.4em;color:#fff}
+.form p{color:#f5dfd3}
+.form label{display:block;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;margin:16px 0 6px;color:#f5dfd3}
+.form input,.form textarea{width:100%;border:0;border-radius:12px;padding:14px 16px;font:1.05rem "Source Sans 3";color:var(--ink);background:#fff}
+.form textarea{min-height:90px;resize:vertical}
+.form .btn{background:var(--ink);margin-top:18px;width:100%;font-size:1.1rem;padding:16px}
+.form .btn:hover{background:#000}
+.form .ok{display:none;background:#fff;color:var(--ink);border-radius:14px;padding:20px;margin-top:16px}
+.form .ok b{color:var(--clay)}
+.form .err{display:none;background:#fff3ee;color:var(--ink);border-radius:14px;padding:16px;margin-top:16px;font-size:.95rem}
+/* ŻYCZENIA */
+.wish{background:var(--bg2)}
+.wish .txt{font-family:Fraunces,serif;font-size:clamp(1.25rem,2.6vw,1.6rem);line-height:1.55;font-weight:300}
+.wish .txt p:first-of-type:first-letter{font-size:3.2em;float:left;line-height:.8;margin:.08em .12em 0 0;color:var(--clay);font-weight:600}
+.sig{font-family:Fraunces,serif;font-style:italic;font-size:1.6rem;color:var(--clay);margin-top:1.4em}
+.together{display:grid;grid-template-columns:1.1fr 1fr;gap:28px;align-items:center;margin-top:3em}
+@media(max-width:700px){.together{grid-template-columns:1fr}}
+.together .photo{margin:0}
+.info{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:22px 24px;font-size:1rem}
+.info b{color:var(--clay)}
+.info ul{padding-left:1.2em;margin:.5em 0 0}
+footer{padding:40px 16px;text-align:center;font-size:.8rem;color:var(--ink2)}
+footer a{color:var(--ink2)}
+</style>
+</head>
+<body>
+<div class="bgpat"></div>
+
+<section class="hero">
+  <div>
+    <div class="num">30</div>
+    <h1>Kasiu, <span>wszystkiego najlepszego!</span></h1>
+    <p>Trzydziestka to dobry moment na coś, czego jeszcze nie robiłaś. Mam dla Ciebie prezent — ale najpierw musisz zgadnąć, co to.</p>
+  </div>
+  <div class="scroll">przewiń</div>
+</section>
+
+<section id="zagadka">
+  <div class="wrap">
+    <div class="kicker r">krok 1 · zagadka</div>
+    <h2 class="r">Co to <em>może</em> być?</h2>
+    <p class="r">Trzy podpowiedzi. Kliknij kartę, żeby ją odwrócić.</p>
+    <div class="cards r">
+      <div class="card"><div class="f">Ma ok. 5&nbsp;500 lat<small>podpowiedź 1 · dotknij</small></div><div class="b"><p>…i nadal <b>się kręci</b>. Ludzie robili to, zanim wymyślili pismo, koło do wozu i pieniądze.</p></div></div>
+      <div class="card"><div class="f">Film z 1990 roku<small>podpowiedź 2 · dotknij</small></div><div class="b"><p>Demi Moore, Patrick Swayze, „Unchained Melody” i <b>najsłynniejsza scena z gliną</b> w historii kina.</p></div></div>
+      <div class="card"><div class="f">Będziesz mieć brudne ręce<small>podpowiedź 3 · dotknij</small></div><div class="b"><p>Ale na końcu wyjdziesz z czymś, co <b>zrobiłaś sama</b> — i z czego można pić kawę.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="hist">
+  <div class="wrap">
+    <div class="kicker r">krok 2 · trochę historii</div>
+    <h2 class="r">Najstarsza maszyna, <em>która wciąż działa</em></h2>
+    <p class="r">Zanim zobaczysz prezent — kilka rzeczy, których pewnie nie wiedziałaś o kole garncarskim.</p>
+    <ul class="tl r">
+      <li><b>ok. 3500 p.n.e. · Mezopotamia</b><p>Sumerowie wpadają na pomysł, że jeśli obracać podstawkę, glina sama się wyrównuje. Pierwsze koło garncarskie powstaje setki lat przed pierwszym wozem na kołach.</p></li>
+      <li><b>ok. 2500 p.n.e. · Egipt i Chiny</b><p>Koło napędzane nogą — garncarz ma wreszcie obie ręce wolne. Powstają naczynia, które do dziś stoją w muzeach praktycznie bez rysy.</p></li>
+      <li><b>V w. p.n.e. · Grecja</b><p>Amfory, kratery, kyliksy. Garncarze podpisują swoje prace — to jedni z pierwszych „artystów z nazwiskiem” w historii.</p></li>
+      <li><b>XIV–XIX w. · Polska</b><p>Bolesławiec, Iłża, Kaszuby. Cechy garncarskie, tajemnice szkliw przekazywane z ojca na syna i garnki, które każdy miał w kuchni.</p></li>
+      <li><b>1990 · „Uwolnij ducha”</b><p>Jedna scena i cały świat nagle chce się zapisać na kurs ceramiki. Serio — szkoły ceramiki w USA odnotowały wtedy rekordowe zapisy.</p></li>
+      <li><b>2026 · Ty</b><p>Ceramika przeżywa renesans: to najlepszy sposób, żeby na 1,5 godziny odłożyć telefon, wyłączyć głowę i zrobić coś rękami. Ludzie mówią o tym „joga dla dłoni”.</p></li>
+    </ul>
+    <div class="grid2 r">
+      <figure class="photo"><img src="../assets/hands.jpg" alt="Dłonie na kole garncarskim" loading="lazy"></figure>
+      <figure class="photo"><img src="../assets/shape.jpg" alt="Formowanie naczynia" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
+<section class="wheel" id="kolo">
+  <div class="wrap">
+    <div class="kicker r">krok 3 · rozgrzewka</div>
+    <h2 class="r">Wytocz swój <em>pierwszy</em> garnek</h2>
+    <p class="r">Koło już się kręci. Przeciągnij palcem (albo myszką) po glinie — im bliżej środka, tym węższa ścianka. Spróbuj zrobić wazon, miskę, kubek… albo cokolwiek, co Ci wyjdzie. Pierwsze zawsze wychodzi krzywe.</p>
+    <div class="wheelbox r">
+      <canvas id="cv" width="800" height="560"></canvas>
+      <div class="btns">
+        <button class="btn ghost" id="reset">Zacznij od nowa</button>
+        <button class="btn ghost" id="rnd">Podpowiedz kształt</button>
+        <a class="btn" href="#prezent">Wystarczy, pokaż prezent →</a>
+      </div>
+      <div class="hint" id="hint">Prawdziwa glina jest trudniejsza. Ale też o wiele przyjemniejsza.</div>
+    </div>
+  </div>
+</section>
+
+<section class="gift" id="prezent">
+  <div class="wrap">
+    <div class="kicker r">krok 4 · prezent</div>
+    <h2 class="r">Dobra, <em>otwieraj</em></h2>
+    <div class="box r" id="box">
+      <div class="lid"></div><div class="rib"></div><div class="rib2"></div><div class="bow"></div><div class="base"></div>
+      <div class="tag">kliknij, żeby otworzyć</div>
+    </div>
+    <div class="reveal" id="reveal">
+      <div class="vcard">
+        <div class="k">voucher podarunkowy · Centrum Artystyczne Sztukarnia</div>
+        <h3>Warsztaty toczenia na kole garncarskim</h3>
+        <p>Zajęcia dla osób, które nigdy nie miały do czynienia z gliną. Nauczysz się, jak działa koło, jak wycentrować glinę (najtrudniejsza część!) i wytoczysz własne naczynie — pod okiem instruktora, ze wszystkimi narzędziami na miejscu.</p>
+        <div class="meta">
+          <div><b>Czas</b><span>1,5 godziny</span></div>
+          <div><b>Ważny do</b><span>20.09.2027</span></div>
+          <div><b>Gdzie</b><span>Sztukarnia</span></div>
+        </div>
+        <p><b>Zosia dostała dokładnie taki sam.</b> Możecie umówić się na ten sam termin i pójść razem — dwie siostry, dwa koła, dwa krzywe garnki. Albo i nie krzywe.</p>
+        <p style="margin:0;font-size:.95rem;color:var(--ink2)">Zapisy: <a href="mailto:sztukarnia@sztukarnia.pl">sztukarnia@sztukarnia.pl</a> · tel. 692 870 303 · <a href="https://www.sztukarnia.pl" target="_blank" rel="noopener">www.sztukarnia.pl</a></p>
+      </div>
+
+      <form class="form" id="frm" action="https://formsubmit.co/stasiu2626@gmail.com" method="POST">
+        <h3>Gdzie mam wysłać voucher?</h3>
+        <p>Vouchera nie ma na tej stronie (żeby nikt obcy go nie „wykorzystał”). Wpisz adres e-mail — wyślę Ci PDF z numerem kuponu, a Ty umawiasz termin ze Sztukarnią.</p>
+        <input type="hidden" name="_subject" value="Voucher dla Kasia — prośba o wysyłkę">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="dla" value="Kasia">
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+        <label for="em">Twój e-mail</label>
+        <input id="em" type="email" name="email" placeholder="np. kasia@gmail.com" required autocomplete="email">
+        <label for="msg">Wiadomość (opcjonalnie)</label>
+        <textarea id="msg" name="wiadomosc" placeholder="np. „Idziemy z Zosią razem!”"></textarea>
+        <button class="btn" type="submit" id="send">Wyślij mi voucher</button>
+        <div class="ok" id="ok"><b>Poszło!</b> Zaraz dostaniesz voucher na podany adres. Sprawdź też spam, gdyby nie przyszedł.</div>
+        <div class="err" id="err">Coś nie zadziałało z wysyłką. <a id="mailto" href="#">Kliknij tu</a> — otworzy się gotowy mail do mnie, wystarczy wysłać.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="wish" id="zyczenia">
+  <div class="wrap">
+    <div class="kicker r">na koniec</div>
+    <h2 class="r">Życzenia</h2>
+    <div class="txt r">
+<p>Kasiu, trzydzieści lat to nie jest żadna granica — to raczej moment, w którym wreszcie wiadomo, co się lubi, a na co szkoda czasu. Życzę Ci, żeby ten nowy rozdział kręcił się w Twoim tempie: wolno, kiedy potrzebujesz oddechu, i szybko, kiedy masz plan.</p>
+<p>Żebyś miała odwagę wycentrować to, co dla Ciebie ważne, i nie bała się, że coś się rozjedzie — z gliny zawsze da się ulepić coś nowego. Zdrowia, śmiechu do łez, ludzi, przy których jesteś w stu procentach sobą, i przynajmniej jednego kubka własnej roboty, z którego będziesz rano pić kawę i myśleć: „sama to zrobiłam”.</p>
+<p>Sto lat!</p>
+    </div>
+    <div class="sig r">— Łukasz</div>
+    <div class="together r">
+      <figure class="photo"><img src="../assets/together.jpg" alt="Cztery dłonie na kole garncarskim" loading="lazy"></figure>
+      <div class="info">
+        <b>Jak z tego skorzystać</b>
+        <ul>
+          <li>Podaj wyżej maila — wyślę Ci voucher w PDF.</li>
+          <li>Napisz lub zadzwoń do Sztukarni i wybierz termin (voucher ważny rok, do 20.09.2027).</li>
+          <li>Umów się razem z Zosią — jedno wyjście, dwa vouchery.</li>
+          <li>Ubierz coś, co może się ubrudzić. Serio.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>Zdjęcia: Unsplash. Zrobione z miłością i odrobiną kodu.</footer>
+
+<script>
+// reveal on scroll
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.r').forEach(el=>io.observe(el));
+// cards
+document.querySelectorAll('.card').forEach(c=>c.addEventListener('click',()=>c.classList.toggle('flip')));
+
+// ===== koło garncarskie =====
+(()=>{
+const cv=document.getElementById('cv'),ctx=cv.getContext('2d');
+const W=cv.width,H=cv.height,cx=W/2,top=110,base=460,rows=base-top;
+let prof=[],phase=0,dragging=false,lastY=null,lastR=null;
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+function reset(){prof=[];for(let i=0;i<rows;i++)prof.push(120);}
+function preset(){
+  const k=Math.floor(Math.random()*4);
+  for(let i=0;i<rows;i++){const t=i/rows;let r;
+    if(k===0)r=70+110*Math.sin(t*Math.PI)*(1-t*.3)+20*t;           // wazon
+    else if(k===1)r=60+150*Math.pow(t,.6);                           // miska
+    else if(k===2)r=110+30*Math.sin(t*6.28)*(.5+t)+10*t;             // kubek z talią
+    else r=40+30*Math.sin(t*3.14)+170*Math.pow(t,3);                // butelka
+    prof[i]=clamp(r,28,330);}
+}
+function smooth(){for(let p=0;p<2;p++)for(let i=1;i<rows-1;i++)prof[i]=(prof[i-1]+prof[i]*2+prof[i+1])/4;}
+function pos(e){const r=cv.getBoundingClientRect();const t=e.touches?e.touches[0]:e;return{x:(t.clientX-r.left)*W/r.width,y:(t.clientY-r.top)*H/r.height};}
+function apply(y,r){const i=clamp(Math.round(y-top),0,rows-1);r=clamp(r,28,330);
+  if(lastY!==null){const i0=clamp(Math.round(lastY-top),0,rows-1);const n=Math.abs(i-i0)||1;
+    for(let s=0;s<=n;s++){const j=i0+Math.round((i-i0)*s/n);const rr=lastR+(r-lastR)*s/n;for(let d=-6;d<=6;d++){const jj=j+d;if(jj>=0&&jj<rows){const w=1-Math.abs(d)/8;prof[jj]=prof[jj]*(1-w)+rr*w;}}}}
+  else{for(let d=-6;d<=6;d++){const jj=i+d;if(jj>=0&&jj<rows){const w=1-Math.abs(d)/8;prof[jj]=prof[jj]*(1-w)+r*w;}}}
+  lastY=y;lastR=r;}
+function down(e){dragging=true;lastY=null;const p=pos(e);apply(p.y,Math.abs(p.x-cx));e.preventDefault();}
+function move(e){if(!dragging)return;const p=pos(e);apply(p.y,Math.abs(p.x-cx));e.preventDefault();}
+function up(){dragging=false;lastY=null;}
+cv.addEventListener('mousedown',down);cv.addEventListener('mousemove',move);window.addEventListener('mouseup',up);
+cv.addEventListener('touchstart',down,{passive:false});cv.addEventListener('touchmove',move,{passive:false});window.addEventListener('touchend',up);
+document.getElementById('reset').onclick=reset;document.getElementById('rnd').onclick=()=>{preset();smooth();};
+function draw(){
+  phase+=0.09;ctx.clearRect(0,0,W,H);
+  // koło (talerz)
+  ctx.save();ctx.translate(cx,base+18);
+  ctx.fillStyle='#6b5a4f';ctx.beginPath();ctx.ellipse(0,26,330,52,0,0,6.29);ctx.fill();
+  ctx.fillStyle='#8a7669';ctx.beginPath();ctx.ellipse(0,14,330,52,0,0,6.29);ctx.fill();
+  ctx.strokeStyle='rgba(255,255,255,.18)';ctx.lineWidth=2;
+  for(let a=0;a<6;a++){const ang=phase+a*1.047;ctx.beginPath();ctx.moveTo(0,14);ctx.lineTo(Math.cos(ang)*320,14+Math.sin(ang)*48);ctx.stroke();}
+  ctx.restore();
+  // cień
+  ctx.fillStyle='rgba(0,0,0,.18)';ctx.beginPath();ctx.ellipse(cx,base+14,prof[rows-1]+16,22,0,0,6.29);ctx.fill();
+  // korpus
+  for(let i=0;i<rows;i++){const r=prof[i],y=top+i;
+    const g=ctx.createLinearGradient(cx-r,0,cx+r,0);
+    g.addColorStop(0,'#7a4a2e');g.addColorStop(.35,'#c98a5c');g.addColorStop(.55,'#d9a274');g.addColorStop(1,'#6e3f27');
+    ctx.fillStyle=g;ctx.fillRect(cx-r,y,r*2,1.2);
+    // linie toczenia (wirujące)
+    if(i%7===0){const k=((i*.37+phase*2)%2)/2;ctx.fillStyle='rgba(60,30,15,'+(0.12+0.1*Math.sin(k*6.28))+')';
+      const s=Math.sin(phase*1.7+i*.05);ctx.fillRect(cx-r*Math.abs(s),y,r*(1+Math.abs(s)),1);}
+  }
+  // wlot (elipsa górna)
+  const rt=prof[0];ctx.fillStyle='#5a3620';ctx.beginPath();ctx.ellipse(cx,top,rt,rt*.28,0,0,6.29);ctx.fill();
+  ctx.fillStyle='#3c2415';ctx.beginPath();ctx.ellipse(cx,top,rt*.78,rt*.2,0,0,6.29);ctx.fill();
+  const rb=prof[rows-1];ctx.fillStyle='rgba(0,0,0,.08)';ctx.beginPath();ctx.ellipse(cx,base,rb,rb*.28,0,0,3.14);ctx.fill();
+  // blask
+  ctx.strokeStyle='rgba(255,255,255,.25)';ctx.lineWidth=3;ctx.beginPath();for(let i=0;i<rows;i+=4){const x=cx-prof[i]*.45;i?ctx.lineTo(x,top+i):ctx.moveTo(x,top+i);}ctx.stroke();
+  requestAnimationFrame(draw);
+}
+reset();draw();
+})();
+
+// prezent
+const box=document.getElementById('box'),rev=document.getElementById('reveal');
+for(let i=0;i<26;i++){const c=document.createElement('i');c.className='confetti';c.style.background=['#c8a15a','#b5532e','#f6f1ec','#3a2e28'][i%4];
+  c.style.setProperty('--dx',(Math.random()*400-200)+'px');c.style.setProperty('--dy',(-Math.random()*300-60)+'px');c.style.animationDelay=(Math.random()*.3)+'s';box.appendChild(c);}
+box.addEventListener('click',()=>{if(box.classList.contains('open'))return;box.classList.add('open');setTimeout(()=>{rev.classList.add('on');setTimeout(()=>rev.scrollIntoView({behavior:'smooth',block:'start'}),400);},600);});
+
+// formularz
+const frm=document.getElementById('frm'),ok=document.getElementById('ok'),err=document.getElementById('err'),send=document.getElementById('send');
+frm.addEventListener('submit',async e=>{
+  e.preventDefault();send.disabled=true;send.textContent='Wysyłam…';ok.style.display=err.style.display='none';
+  const em=document.getElementById('em').value.trim(),msg=document.getElementById('msg').value.trim();
+  document.getElementById('mailto').href='mailto:stasiu2626@gmail.com?subject='+encodeURIComponent('Voucher dla Kasia — wyślij na '+em)+'&body='+encodeURIComponent('Cześć! Tu Kasia. Wyślij mi voucher na: '+em+(msg?'\n\n'+msg:''));
+  try{
+    const r=await fetch('https://formsubmit.co/ajax/stasiu2626@gmail.com',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify({_subject:'Voucher dla Kasia — prośba o wysyłkę',_template:'table',_captcha:'false',dla:'Kasia',email:em,wiadomosc:msg||'—',strona:location.href})});
+    const j=await r.json();
+    if(r.ok&&(j.success==='true'||j.success===true)){ok.style.display='block';send.textContent='Wysłane ✓';}
+    else throw new Error(j.message||'err');
+  }catch(x){err.style.display='block';send.disabled=false;send.textContent='Spróbuj ponownie';}
+});
+</script>
+</body>
+</html>
