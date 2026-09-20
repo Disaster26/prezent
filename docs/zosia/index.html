@@ -15,7 +15,7 @@
   --bg:#e7e1db; --bg2:#efe9e3; --paper:#f6f1ec; --ink:#3a2e28; --ink2:#6d5c52;
   --clay:#b5532e; --clay2:#8f3f21; --line:#d3c8bf; --gold:#c8a15a;
 }
-*{box-sizing:border-box}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:"Source Sans 3",system-ui,sans-serif;font-size:18px;line-height:1.6;overflow-x:hidden}
 h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:300;line-height:1.05;margin:0 0 .5em}
@@ -28,7 +28,7 @@ section{padding:clamp(56px,10vw,120px) 16px;position:relative}
 .kicker{font-size:.95rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);margin-bottom:1em}
 .bgpat{position:fixed;inset:0;z-index:-1;opacity:.55;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320' viewBox='0 0 320 320'%3E%3Cg fill='none' stroke='%23fff' stroke-width='1.4'%3E%3Cpath d='M40 60c0 20 8 40 30 40s30-20 30-40M40 60h60'/%3E%3Cpath d='M190 40c-8 10-12 30-6 50 3 12 14 18 22 18s19-6 22-18c6-20 2-40-6-50M190 40h32'/%3E%3Cellipse cx='90' cy='200' rx='40' ry='10'/%3E%3Cpath d='M50 200c0 22 15 40 40 40s40-18 40-40'/%3E%3Cpath d='M220 170c-15 5-25 20-25 40s15 40 35 40 35-20 35-40-10-35-25-40M215 170h40'/%3E%3Ccircle cx='150' cy='290' r='14'/%3E%3Cpath d='M270 270c0 12 10 22 20 22s20-10 20-22'/%3E%3C/g%3E%3C/svg%3E")}
 /* HERO */
-.hero{min-height:100svh;display:grid;place-items:center;text-align:center;padding-top:80px;padding-bottom:80px}
+.hero{min-height:100vh;min-height:100svh;display:grid;place-items:center;text-align:center;padding-top:80px;padding-bottom:80px}
 .hero .num{font-family:Fraunces,serif;font-weight:600;font-size:clamp(9rem,36vw,22rem);line-height:.85;letter-spacing:-.04em;
   background:url(../assets/hero.jpg) center/cover;-webkit-background-clip:text;background-clip:text;color:transparent;filter:contrast(1.05) saturate(1.1);
   display:inline-block;animation:spin-in 1.4s cubic-bezier(.2,.8,.2,1) both}
@@ -45,7 +45,7 @@ section{padding:clamp(56px,10vw,120px) 16px;position:relative}
 .r.in{opacity:1;transform:none}
 /* ZAGADKA */
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:2em;perspective:1200px}
-.card{position:relative;height:230px;cursor:pointer;transform-style:preserve-3d;transition:transform .7s cubic-bezier(.2,.8,.2,1)}
+.card{position:relative;height:230px;cursor:pointer;user-select:none;-webkit-user-select:none;transform-style:preserve-3d;transition:transform .7s cubic-bezier(.2,.8,.2,1)}
 .card.flip{transform:rotateY(180deg)}
 .card>div{position:absolute;inset:0;border-radius:18px;padding:24px;backface-visibility:hidden;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
 .card .f{background:var(--clay);color:#fff;font-family:Fraunces,serif;font-size:1.6rem;box-shadow:0 12px 30px -12px rgba(0,0,0,.4)}
@@ -72,7 +72,8 @@ section{padding:clamp(56px,10vw,120px) 16px;position:relative}
 /* KOŁO */
 .wheel{background:var(--bg2)}
 .wheelbox{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:14px;margin-top:1.5em;box-shadow:0 30px 60px -40px rgba(0,0,0,.5)}
-canvas#cv{display:block;width:100%;height:auto;border-radius:14px;background:radial-gradient(ellipse at 50% 120%,#c4b3a4,#e9e1da 60%);touch-action:none;cursor:crosshair}
+canvas#cv{display:block;width:100%;height:auto;border-radius:14px;background:radial-gradient(ellipse at 50% 120%,#c4b3a4,#e9e1da 60%);touch-action:none;cursor:crosshair;user-select:none;-webkit-user-select:none}
+@media(max-width:600px){.card{height:200px}.btns .btn{flex:1 1 100%;text-align:center}}
 .btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
 .btn{appearance:none;border:0;border-radius:999px;padding:12px 22px;font:600 1rem "Source Sans 3";cursor:pointer;background:var(--clay);color:#fff;transition:transform .15s,background .2s;text-decoration:none;display:inline-block}
 .btn:hover{background:var(--clay2);transform:translateY(-1px)}
@@ -186,7 +187,7 @@ footer a{color:var(--ink2)}
     <h2 class="r">Wytocz swój <em>pierwszy</em> garnek</h2>
     <p class="r">Koło już się kręci. Przeciągnij palcem (albo myszką) po glinie — im bliżej środka, tym węższa ścianka. Spróbuj zrobić wazon, miskę, kubek… albo cokolwiek, co Ci wyjdzie. Pierwsze zawsze wychodzi krzywe.</p>
     <div class="wheelbox r">
-      <canvas id="cv" width="800" height="560"></canvas>
+      <canvas id="cv"></canvas>
       <div class="btns">
         <button class="btn ghost" id="reset">Zacznij od nowa</button>
         <button class="btn ghost" id="rnd">Podpowiedz kształt</button>
@@ -276,10 +277,11 @@ document.querySelectorAll('.card').forEach(c=>c.addEventListener('click',()=>c.c
 // ===== koło garncarskie =====
 (()=>{
 const cv=document.getElementById('cv'),ctx=cv.getContext('2d');
-const W=cv.width,H=cv.height,cx=W/2,top=110,base=460,rows=base-top;
+const portrait=window.innerWidth<600;cv.width=portrait?600:800;cv.height=portrait?720:560;
+const W=cv.width,H=cv.height,cx=W/2,top=Math.round(H*.2),base=Math.round(H*.82),rows=base-top,RMAX=Math.round(W*.41),RMIN=Math.round(W*.035),WR=Math.round(W*.41);
 let prof=[],phase=0,dragging=false,lastY=null,lastR=null;
 const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
-function reset(){prof=[];for(let i=0;i<rows;i++)prof.push(120);}
+function reset(){prof=[];for(let i=0;i<rows;i++)prof.push(RMAX*.36);}
 function preset(){
   const k=Math.floor(Math.random()*4);
   for(let i=0;i<rows;i++){const t=i/rows;let r;
@@ -287,11 +289,11 @@ function preset(){
     else if(k===1)r=60+150*Math.pow(t,.6);                           // miska
     else if(k===2)r=110+30*Math.sin(t*6.28)*(.5+t)+10*t;             // kubek z talią
     else r=40+30*Math.sin(t*3.14)+170*Math.pow(t,3);                // butelka
-    prof[i]=clamp(r,28,330);}
+    prof[i]=clamp(r*RMAX/330,RMIN,RMAX);}
 }
 function smooth(){for(let p=0;p<2;p++)for(let i=1;i<rows-1;i++)prof[i]=(prof[i-1]+prof[i]*2+prof[i+1])/4;}
 function pos(e){const r=cv.getBoundingClientRect();const t=e.touches?e.touches[0]:e;return{x:(t.clientX-r.left)*W/r.width,y:(t.clientY-r.top)*H/r.height};}
-function apply(y,r){const i=clamp(Math.round(y-top),0,rows-1);r=clamp(r,28,330);
+function apply(y,r){const i=clamp(Math.round(y-top),0,rows-1);r=clamp(r,RMIN,RMAX);
   if(lastY!==null){const i0=clamp(Math.round(lastY-top),0,rows-1);const n=Math.abs(i-i0)||1;
     for(let s=0;s<=n;s++){const j=i0+Math.round((i-i0)*s/n);const rr=lastR+(r-lastR)*s/n;for(let d=-6;d<=6;d++){const jj=j+d;if(jj>=0&&jj<rows){const w=1-Math.abs(d)/8;prof[jj]=prof[jj]*(1-w)+rr*w;}}}}
   else{for(let d=-6;d<=6;d++){const jj=i+d;if(jj>=0&&jj<rows){const w=1-Math.abs(d)/8;prof[jj]=prof[jj]*(1-w)+r*w;}}}
@@ -306,10 +308,10 @@ function draw(){
   phase+=0.09;ctx.clearRect(0,0,W,H);
   // koło (talerz)
   ctx.save();ctx.translate(cx,base+18);
-  ctx.fillStyle='#6b5a4f';ctx.beginPath();ctx.ellipse(0,26,330,52,0,0,6.29);ctx.fill();
-  ctx.fillStyle='#8a7669';ctx.beginPath();ctx.ellipse(0,14,330,52,0,0,6.29);ctx.fill();
+  ctx.fillStyle='#6b5a4f';ctx.beginPath();ctx.ellipse(0,26,WR,WR*.16,0,0,6.29);ctx.fill();
+  ctx.fillStyle='#8a7669';ctx.beginPath();ctx.ellipse(0,14,WR,WR*.16,0,0,6.29);ctx.fill();
   ctx.strokeStyle='rgba(255,255,255,.18)';ctx.lineWidth=2;
-  for(let a=0;a<6;a++){const ang=phase+a*1.047;ctx.beginPath();ctx.moveTo(0,14);ctx.lineTo(Math.cos(ang)*320,14+Math.sin(ang)*48);ctx.stroke();}
+  for(let a=0;a<6;a++){const ang=phase+a*1.047;ctx.beginPath();ctx.moveTo(0,14);ctx.lineTo(Math.cos(ang)*WR*.97,14+Math.sin(ang)*WR*.145);ctx.stroke();}
   ctx.restore();
   // cień
   ctx.fillStyle='rgba(0,0,0,.18)';ctx.beginPath();ctx.ellipse(cx,base+14,prof[rows-1]+16,22,0,0,6.29);ctx.fill();
